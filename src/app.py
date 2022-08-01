@@ -10,9 +10,10 @@ class MyBot(irc.bot.SingleServerIRCBot):
         self.token = token
         self.channel = f'#{channel}'
         # Get the channel id, we will need it for the API calls
-        url = f'https://api.twitch.tv/kraken/users?login={channel}'
-        headers = {'Client-ID': self.client_id, 'Accept': 'application/vnd.twitchtv.v5+json'}
+        url = f'https://api.twitch.tv/helix/users?login={channel}'
+        headers = {'client-id': self.client_id, 'authorization': f'Bearer {self.token}'}
         response = requests.get(url, headers=headers).json()
+        print(response)
         self.channel_id = response['users'][0]['id']
         # Create the IRC bot connection
         server = 'irc.chat.twitch.tv'

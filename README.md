@@ -1,4 +1,4 @@
-# ChroMKy
+# Chopky
 Chatbot to Twitch 
 
 *If you liked this project give me a star*
